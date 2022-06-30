@@ -9,7 +9,7 @@ There is no guarantee that it will not be detected.
 
 In this version, the following enhancements have been made to enhance the probability that d2r-mapview may be detected:
 
-1. Remove sensitive substrings from text files and forms.
+1. Remove sensitive substrings from text files and window title.
 2. Unlock the font files from AHK self-release, which is convenient to protect these files by packing.
 3. Modify localization.ini and release it as a random file to prevent detection.
 
