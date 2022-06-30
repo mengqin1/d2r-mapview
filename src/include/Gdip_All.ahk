@@ -4488,6 +4488,8 @@ Gdip_NewPrivateFontCollection() {
    Return hFontCollection
 }
 
+global loaded_fontfile := {}
+
 Gdip_CreateFontFamilyFromFile(FontFile, hFontCollection, FontName:="") {
 ; hFontCollection - the collection to add the font to
 ; Pass the result of Gdip_NewPrivateFontCollection() to this parameter
@@ -4504,7 +4506,56 @@ Gdip_CreateFontFamilyFromFile(FontFile, hFontCollection, FontName:="") {
       Return
 
    hFontFamily := 0
-   E := DllCall("gdiplus\GdipPrivateAddFontFile", "ptr", hFontCollection, "str", FontFile)
+   
+   ffont := loaded_fontfile[FontFile]
+   
+   if (ffont) {      
+      Goto, Loadfont
+   } else {
+      ffont := {}
+   }  
+   
+   OPEN_EXISTING = 3
+   GENERIC_READ := 0x80000000  
+   FILE_SHARE_READ := 0x1
+   FILE_SHARE_WRITE := 0x2
+   hFile := DllCall("CreateFile", "str", FontFile, "UInt", GENERIC_READ, "UInt", FILE_SHARE_READ|FILE_SHARE_WRITE, "UInt", 0, "UInt", OPEN_EXISTING, "Uint", 0, "UInt", 0)
+   if !hFile {      
+      Return
+   }   
+      
+   fileSize := DllCall("GetFileSize", "UInt", hFile, "Ptr", 0)
+   
+   if (fileSize < 0) {      
+      DllCall("CloseHandle", "UInt", hFile)      
+      Return
+   }
+   
+   ffont.fileSize := fileSize   
+   
+   readBuff := DllCall("GlobalAlloc", "Uint", 0, "UPtr", fileSize, "Ptr")
+   
+   if (!readBuff) {      
+      DllCall("CloseHandle", "UInt", hFile)      
+      Return
+   }
+   
+   ret := DllCall("ReadFile", "UInt", hFile, "Ptr", readBuff, "UInt", fileSize, "UPtr", BytesActuallyRead, "UInt", 0)
+   
+   if (!ret) {      
+      DllCall("CloseHandle", "UInt", hFile)
+      Return
+   }
+   
+   ffont.buff := readBuff
+   
+   loaded_fontfile[FontFile] := ffont
+   
+   DllCall("CloseHandle", "UInt", hFile)
+
+Loadfont:      
+   
+   E := DllCall("gdiplus\GdipPrivateAddMemoryFont", "ptr", hFontCollection, "Ptr", ffont.buff, "int", ffont.fileSize)
    if (FontName="" && !E)
    {
       VarSetCapacity(pFontFamily, 10, 0)
