@@ -14,8 +14,26 @@
 ; ruRU
 ; zhCN
 
+global localization_ini_file := "localization.ini"
+
+RandStr(len) {
+    chars := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", clen := StrLen(chars)
+    Loop, %len% {
+        Random, rnd, 1, %clen%
+        string .= SubStr(chars, rnd, 1)
+    }
+    Return string
+}
+
 LoadLocalization(ByRef settings) {
-    FileInstall, localization.ini, localization.ini, 1
+
+    if (A_IsCompiled) {
+    		Random, fnamelen, 5, 12
+        settings["localization_ini_file"] := A_Temp . "/" . RandStr(fnamelen)
+        localization_ini_file := settings["localization_ini_file"]
+    }
+
+    FileInstall, localization.ini, %localization_ini_file%, 1
     
     if (settings["locale"] == "") {
         locale := GetLocale()
@@ -65,7 +83,7 @@ LoadLocalization(ByRef settings) {
 }
 
 ReadSection(locale, section) {
-    IniRead, OutputVarSection, localization.ini, %locale%-%section%
+    IniRead, OutputVarSection, %localization_ini_file%, %locale%-%section%
     localizedStrings := []
 
     Loop, Parse, OutputVarSection , `n

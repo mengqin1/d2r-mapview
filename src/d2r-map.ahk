@@ -523,6 +523,12 @@ ExitMH:
             alreadyseenperf.Push(thisName)
         }
     }
+    
+    if (A_IsCompiled) {
+        lf := settings["localization_ini_file"]
+        FileDelete, %lf%
+    }
+    
     ExitApp
     return
 }
