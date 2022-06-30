@@ -19,6 +19,7 @@ class GameInfoLayer {
         gameWindowWidth := gameClientArea["W"]
         gameWindowHeight := gameClientArea["H"]
 
+        this.leftPadding := 0
         this.topPadding := 10
 
         height := this.topPadding
@@ -42,12 +43,12 @@ class GameInfoLayer {
 
         this.topMargin := gameWindowY
         if ((gameWindowWidth / gameWindowHeight) > 2) { ;if ultrawide
-            this.leftMargin := gameWindowX
+            this.leftMargin := this.leftPadding + ((gameWindowWidth/2) - (1.034 * gameWindowHeight)) + gameWindowX - 25            
             if (this.gameInfoAlignment == "RIGHT") {
                 this.leftMargin :=  (this.gameWindowWidth - this.textBoxWidth) + this.gameWindowX - 5
             }
         } else {
-            this.leftMargin := gameWindowX + (gameWindowHeight / 10)
+            this.leftMargin := this.leftPadding + ((gameWindowHeight / 46)) + gameWindowX - 25            
             if (this.gameInfoAlignment == "RIGHT") {
                 this.leftMargin :=  (this.gameWindowWidth - this.textBoxWidth) + this.gameWindowX - 5
                 this.topMargin := this.topMargin + (this.gameWindowHeight / 10)
