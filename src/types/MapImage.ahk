@@ -107,7 +107,7 @@ class MapImage {
                 }
                 if (A_Index == 5) {
                     WriteLog("ERROR: Could not load map even after retrying 5 times " errMsg)
-                    Msgbox, 48, d2r-mapview %version%, %errormsg4% %baseUrl%.`n%errormsg5%`n%errormsg6%`n`n%errMsg%`n%errormsg3%
+                    Msgbox, 48, %version%, %errormsg4% %baseUrl%.`n%errormsg5%`n%errormsg6%`n`n%errMsg%`n%errormsg3%
                 }
             }
             if (tries > 1) {

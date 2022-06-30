@@ -206,6 +206,6 @@ readSettings(settingsFile, ByRef settings) {
     if FileExist(A_Scriptdir . "\mapconfig.ini") {
         WriteLog("Found existing mapconfig.ini")
     }
-    WriteLog("Starting d2r-mapview...")
+    WriteLog("Starting...")
 
 }

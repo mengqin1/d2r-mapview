@@ -23,7 +23,7 @@ checkServer(ByRef settings) {
             emsg := StrReplace(emsg, "`nSource:`t`tWinHttp.WinHttpRequest`nDescription:`t", "")
             emsg := StrReplace(emsg, "`r`n`nHelpFile:`t`t(null)`nHelpContext:`t0", "")
             WriteLog(emsg)
-            Msgbox, 48, d2r-mapview %version%, %errormsg13% %baseUrl%`n`n%errormsg14%`n%errormsg15%`n%errormsg16%`n%emsg%`n`n%errormsg3%
+            Msgbox, 48, %version%, %errormsg13% %baseUrl%`n`n%errormsg14%`n%errormsg15%`n%errormsg16%`n%emsg%`n`n%errormsg3%
             ExitApp
         }
     }
@@ -66,7 +66,7 @@ startMapServer(serverExe, ByRef settings) {
 
     if (!serverStarted) {
         WriteLog("ERROR: Map server failed to start, check serverlog.txt")
-        Msgbox, 48, d2r-mapview %version%, %errormsg17%`n%errormsg18%`n%errormsg19%`n`n%errormsg3%
+        Msgbox, 48, %version%, %errormsg17%`n%errormsg18%`n%errormsg19%`n`n%errormsg3%
         ExitApp
     }
 
@@ -77,7 +77,7 @@ startMapServer(serverExe, ByRef settings) {
         healthCheck(newTestUrl)
     } catch e {
         emsg := e.message
-        Msgbox, 48, d2r-mapview %version%, %errormsg13% %newBaseUrl1%`n`n%errormsg14%`n%errormsg20%`n`n%emsg%`n`n%errormsg3%
+        Msgbox, 48, %version%, %errormsg13% %newBaseUrl1%`n`n%errormsg14%`n%errormsg20%`n`n%emsg%`n`n%errormsg3%
         ExitApp
     }
     WriteLog("Started and using server on " newBaseUrl1)

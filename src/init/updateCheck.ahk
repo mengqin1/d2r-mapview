@@ -33,7 +33,7 @@ CheckForUpdates() {
             WriteLog("Found newer version to download")
             promptmsg1 := localizedStrings["errormsg25"]
             promptmsg2 := localizedStrings["errormsg26"]
-            MsgBox, 36,d2r-mapview, %promptmsg1%`n%promptmsg2%
+            MsgBox, 36,version, %promptmsg1%`n%promptmsg2%
             IfMsgBox Yes
             {
                 
@@ -55,7 +55,7 @@ CheckForUpdates() {
             WriteLog(version " is latest version")
         }
     } catch e {
-        WriteLog("Failed to check for update of d2r-mapview")
+        WriteLog("Failed to check for update")
     }
 }
 

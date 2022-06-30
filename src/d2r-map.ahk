@@ -64,7 +64,6 @@ SetWorkingDir, %A_ScriptDir%
 
 ;Add right click menu in tray
 Menu, Tray, NoStandard ; to remove default menu
-Menu, Tray, Tip, d2r-mapview
 Menu, Tray, Add, Settings, ShowSettings
 Menu, Tray, Add
 Menu, Tray, Add, Reload, Reload
@@ -73,12 +72,8 @@ Menu, Tray, Add, Exit, ExitMH
 
 global version := "2.9.18"
 
-WriteLog("*******************************************************************")
-WriteLog("* Map overlay started https://github.com/joffreybesos/d2r-mapview *")
-WriteLog("*******************************************************************")
 WriteLog("Version: " version)
 WriteLog("Working folder: " A_ScriptDir)
-WriteLog("Please report issues in #support on discord: https://discord.gg/qEgqyVW3uj")
 ClearCache(A_Temp)
 global settings
 global defaultSettings
@@ -134,7 +129,7 @@ SetupHotKeys(gameWindowId, settings)
 if (not WinExist(gameWindowId)) {
     errornogame := localizedStrings["errormsg10"]
     WriteLog(gameWindowId " not found, please make sure game is running, try running MH as admin if still having issues")
-    Msgbox, 48, d2r-mapview %version%, %errormsg10%`n`n%errormsg11%`n%errormsg12%`n`n%errormsg3%
+    Msgbox, 48, %version%, %errormsg10%`n`n%errormsg11%`n%errormsg12%`n`n%errormsg3%
     ExitApp
 }
 
@@ -541,7 +536,7 @@ ShowSettings:
         uix := 100
     if (!uiy)
         uiy := 100
-    Gui, Settings: Show, x%uix% y%uiy% h482 w362, d2r-mapview settings
+    Gui, Settings: Show, x%uix% y%uiy% h482 w362, settings
     return
 }
 
