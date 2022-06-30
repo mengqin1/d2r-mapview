@@ -169,6 +169,8 @@ itemCounterLayer := new ItemCounterLayer(settings)
 uiAssistLayer := new UIAssistLayer(settings)
 buffBarLayer := new BuffBarLayer(settings)
 
+OnMessage(0x0201, "WM_LBUTTONDOWN")
+
 ; main loop
 While 1 {
     frameStart:=A_TickCount
@@ -484,6 +486,20 @@ HistoryToggle:
     return
 }
 
+^L::
+{
+    if (buffBarLayer.locked) {
+        buffBarLayer.unlock()
+    } else {
+        buffBarLayer.lock()		
+    }
+
+    if (itemCounterLayer.locked) {
+        itemCounterLayer.unlock()
+    } else {
+        itemCounterLayer.lock()		
+    }		
+}
 
 ExitMH:
 {
@@ -579,4 +595,22 @@ Reload:
 {
     Reload
     return
+}
+
+WM_LBUTTONDOWN(wParam, lParam, msg, hwnd) {	
+    if (buffBarLayer.buffBarLayerHwnd = hwnd) {
+        PostMessage, 0xA1, 2,,, A
+        keywait, lbutton
+        WinGetPos, X1,Y1,  uptime
+        buffBarLayer.leftMargin := X1
+        buffBarLayer.topMargin := Y1
+    }
+
+    if (itemCounterLayer.ItemCounterLayerHwnd = hwnd) {
+        PostMessage, 0xA1, 2,,, A
+        keywait, lbutton
+        WinGetPos, X1,Y1,  uptime
+        itemCounterLayer.leftMargin := X1
+        itemCounterLayer.topMargin := Y1
+    }
 }
