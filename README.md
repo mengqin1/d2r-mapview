@@ -12,6 +12,7 @@ In this version, the following enhancements have been made to enhance the probab
 1. Remove sensitive substrings from text files and window title.
 2. Unlock the font files from AHK self-release, which is convenient to protect these files by packing.
 3. Modify localization.ini and release it as a random file to prevent detection.
+4. Some other small fix and improvment.
 
 It is strongly recommended that users use VMprotect or other more complex encryption shells to pack the compiled files before use.
 
