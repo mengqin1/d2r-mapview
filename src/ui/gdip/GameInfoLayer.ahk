@@ -137,6 +137,7 @@ class GameInfoLayer {
                 if (A_TickCount - this.startTime < 10000) {
                     textList := textList "Ctrl+O for options`n"
                     textList := textList "Ctrl+H for help`n"
+                    textList := textList "Ctrl+L for lock/unlock buff/scroll bar`n"
                 } else {
                     this.hideStartupText := true
                 }
