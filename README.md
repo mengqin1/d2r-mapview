@@ -1,3 +1,20 @@
+#declaration
+
+d2r-mapview anti-detection version, this version is modified from https://github.com/joffreybesos/d2-mapserver
+The original author has all rights.
+Users use it at their own risk.
+
+Running from source code or using AHK-compiled version cannot guarantee security, and you need to pack it by yourself to ensure security. Improper use will lead to failure of anti-detection.
+There is no guarantee that it will not be detected.
+
+In this version, the following enhancements have been made to enhance the probability that d2r-mapview may be detected:
+
+1. Remove sensitive substrings from text files and forms.
+2. Unlock the font files from AHK self-release, which is convenient to protect these files by packing.
+3. Modify localization.ini and release it as a random file to prevent detection.
+
+It is strongly recommended that users use VMprotect or other more complex encryption shells to pack the compiled files before use.
+
 # Diablo 2: Resurrected map viewer
 
 Noob friendly FREE map reveal tool for Diablo 2 Resurrected.  
