@@ -498,7 +498,8 @@ HistoryToggle:
         itemCounterLayer.unlock()
     } else {
         itemCounterLayer.lock()		
-    }		
+    }
+    return	
 }
 
 ExitMH:
