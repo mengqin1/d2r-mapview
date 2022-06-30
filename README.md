@@ -1,4 +1,4 @@
-#declaration
+# Declaration
 
 d2r-mapview anti-detection version, this version is modified from https://github.com/joffreybesos/d2-mapserver
 The original author has all rights.
