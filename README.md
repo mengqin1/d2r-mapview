@@ -16,6 +16,26 @@ In this version, the following enhancements have been made to enhance the probab
 
 It is strongly recommended that users use VMprotect or other more complex encryption shells to pack the compiled files before use.
 
+# Howto
+
+1. Checkout code.
+2. Compile script d2r-map.ahk to d2r-map.exe by AHK2EXE
+3. Pack/encrypt d2r-map.exe by your own's packer/shell. Recommand VMprotect, it can add font files to memory to avoid detectation.
+4. Change d2r-map.exe to other names and put it to a independent path without sensitive word.
+5. Don't run it with bnet client together.
+6. Don't run it with windows mapserver. Set your map server on another device/VM.
+7. Good luck.
+
+# Q&A
+
+Why not support compiled and packed binart directly?
+
+Any published file can calculate its own MD5 and name, and checking if a known process is running couldn't be easier. It doesn't make any sense to provide binary files directly, compile and package your own executable files, and ensure your own security.
+
+What about noob users?
+
+Don't use this.
+
 # Diablo 2: Resurrected map viewer
 
 Noob friendly FREE map reveal tool for Diablo 2 Resurrected.  
