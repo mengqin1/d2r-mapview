@@ -12,7 +12,7 @@ In this version, the following enhancements have been made to enhance the probab
 1. Remove sensitive substrings from text files and window title.
 2. Unlock the font files from AHK self-release, which is convenient to protect these files by packing.
 3. Modify localization.ini and release it as a random file to prevent detection.
-4. Some other small fix and improvment.
+4. Some other small fix and improvement.
 
 It is strongly recommended that users use VMprotect or other more complex encryption shells to pack the compiled files before use.
 
@@ -28,7 +28,7 @@ It is strongly recommended that users use VMprotect or other more complex encryp
 
 # Q&A
 
-Why not support compiled and packed binart directly?
+Why not support compiled and packed binary directly?
 
 Any published file can calculate its own MD5 and name, and checking if a known process is running couldn't be easier. It doesn't make any sense to provide binary files directly, compile and package your own executable files, and ensure your own security.
 
