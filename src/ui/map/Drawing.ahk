@@ -12,7 +12,7 @@ class Brushes {
             dotScale := 1.1
         }
         this.pPenGreen := Gdip_CreatePen(0xff00FF00, 0.8 * scale)
-        this.pPenPlayer := Gdip_CreatePen(0xff . settings["playerColor"], 1 * scale)
+        this.pPenPlayer := Gdip_CreatePen(0xff . settings["playerColor"], 1.7 * scale)
         this.pPenOtherPlayer := Gdip_CreatePen(0xff00ff00, 0.8 * scale)
         this.pPenCorpse := Gdip_CreatePen(0xffff00ff, 0.8 * scale)
         this.pPenBlack := Gdip_CreatePen(0xff000000, 0.5 * scale)
