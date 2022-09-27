@@ -193,7 +193,7 @@ class Brushes {
 
 drawFloatingText(ByRef G, ByRef brushes, ByRef unitx, ByRef unity, ByRef fontSize, ByRef fontColor, ByRef background, ByRef forceNoWrap, ByRef font, ByRef text, noOverflow := false) {
 
-    textSpaceWidth := StrLen(text) * fontSize
+    textSpaceWidth := (StrLen(text) + 2) * fontSize
     , textSpaceHeight := 100
     , textx := unitx - textSpaceWidth /2
     , texty := unity-(brushes.normalDotSize/2) - textSpaceHeight
