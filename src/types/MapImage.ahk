@@ -162,7 +162,7 @@ class MapImage {
                 settings["alertedMapServerVersion"] := true
                 IniWrite, % 1, settings.ini, Settings, alertedMapServerVersion
                 errormsg27 := localizedStrings["errormsg27"]
-                Msgbox, 48, d2r-mapview %version%, %errormsg27%
+                Msgbox, 48, %version%, %errormsg27%
             }
         }
         this.leftTrimmed := leftTrimmed

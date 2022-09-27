@@ -1,7 +1,8 @@
 
 CheckForUpdates() {
     try {
-        URLLatestRelease := "https://api.github.com/repos/joffreybesos/d2r-mapview/releases/latest"
+    		return
+        URLLatestRelease := ""
         response := GetAPIRequest(URLLatestRelease)
         respJSON := JSON.Load(response)
         latesttag := respJSON.tag_name
@@ -15,7 +16,7 @@ CheckForUpdates() {
             foundnewer := false
         } else if (currenttagarr[2] > latesttagarr[2]) {
             foundnewer := false
-        } else if (currenttagarr[3] > latesttagarr[3]) {
+        } else if (currenttagarr[3] > latesttagarr[3]) {:
             foundnewer := false
         }
 
