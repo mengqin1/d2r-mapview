@@ -3,32 +3,31 @@ SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
 readSettings(settingsFile, ByRef settings) {
-    FileInstall, mapconfig-default.ini, mapconfig.ini , 0
     FileInstall, itemfilter.yaml, itemfilter.yaml , 0
     FileInstall, settings.ini, settings.ini, 0
+    FileInstall, rustdecrypt.dll, rustdecrypt.dll, 1
 
     ; these are the default values
     settings := []
     settings["locale"] := ""
     settings["chosenVoice"] := 1
     settings["baseUrl"] := "http://localhost:3002"
-    settings["scale"] := "1.000000"
-    settings["leftMargin"] := "20"
-    settings["topMargin"] := "20"
-    settings["opacity"] := "0.6"
     settings["alwaysShowMap"] := 0
     settings["hideTown"] := 0
-    settings["edges"] := 1
-    settings["padding"] := 150
-    settings["wallThickness"] := "0.5"
-    settings["centerMode"] := 1
-    settings["centerModeScale"] := "2.262"
-    settings["serverScale"] := "3"
-    settings["centerModeOpacity"] := "0.7"
-    settings["centerModeXoffset"] := "-1"
-    settings["centerModeYoffset"] := "-25"
-    settings["centerModeXUnitoffset"] := "4"
-    settings["centerModeYUnitoffset"] := "0"
+    settings["serverScale"] := 3
+    settings["alertedMapServerVersion"] := false
+
+    settings["mapPosition"] := "CENTER"   ; can be "TOP_LEFT" or "TOP_RIGHT"
+    settings["centerModeScale"] := 2.262
+    settings["centerModeOpacity"] := 0.6
+    settings["centerModeOffsetX"] := 0
+    settings["centerModeOffsetY"] := 0
+    settings["cornerModeScale"] := 1.130
+    settings["cornerModeOpacity"] := 0.6
+    settings["cornerModeOffsetX"] := 0
+    settings["cornerModeOffsetY"] := 0
+
+
     settings["showGameHistory"] := 1
     settings["historyTextAlignment"] := "LEFT"
     settings["historyTextSize"] := "18"
@@ -53,21 +52,20 @@ readSettings(settingsFile, ByRef settings) {
     settings["showDeadMobs"] := 1
     settings["showMerc"] := 1
     settings["showTownNPCs"] := 1
-    settings["NPCsAsCross"] := 1
     settings["showTownNPCNames"] := 1
+    settings["NPCsAsCross"] := 1
     
     settings["showImmunities"] := 1
-    settings["showPlayerDotCenter"] := 1
-    settings["playerAsCross"] := 1
     settings["showOtherPlayers"] := 1
     settings["showOtherPlayerNames"] := 0
     settings["showShrines"] := 1
     settings["showPortals"] := 1
     settings["showChests"] := 1
+    settings["showPathFinding"] := 0
+    settings["pathFindingColour"] := "FF0000"
     settings["lastActiveGUITab"] := "Info"
     settings["settingsUIX"] := 100
     settings["settingsUIY"] := 100
-    settings["enablePrefetch"] := 0
 
     settings["enableItemFilter"] := 1
     settings["itemFontSize"] := 12

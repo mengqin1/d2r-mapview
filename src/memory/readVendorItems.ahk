@@ -37,13 +37,13 @@ ReadVendorItems(ByRef d2rprocess, startingOffset, ByRef levelNo, ByRef vendorIte
                                 d2rprocess.readRaw(pStatsListExPtr, pStatsListEx, 144)
                                 , statPtr := NumGet(&pStatsListEx , 0x30, "Int64")
                                 , statCount := NumGet(&pStatsListEx , 0x38, "Int64")
-                                , statExPtr := NumGet(&pStatsListEx , 0x80, "Int64")
-                                , statExCount := NumGet(&pStatsListEx , 0x88, "Int64")
+                                , statExPtr := NumGet(&pStatsListEx , 0x88, "Int64")
+                                , statExCount := NumGet(&pStatsListEx , 0x90, "Int64")
                                 , item := new GameItem(txtFileNo, itemQuality, uniqueOrSetId)
                                 , item.name := name
                                 , item.itemLoc := itemLoc
-                                , item.itemx := itemx
-                                , item.itemy := itemy
+                                , item.x := itemx
+                                , item.y := itemy
                                 , item.inStore := true
                                 , item.statPtr := statPtr
                                 , item.statCount := statCount

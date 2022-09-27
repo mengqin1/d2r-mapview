@@ -49,7 +49,7 @@ LoadLocalization(ByRef settings) {
     localizedStringsShrines := ReadSection(locale, "Shrines")
     localizedStringsAreas := ReadSection(locale, "Areas")
     localizedStringsItems := ReadSection(locale, "Items")
-    localizedStringsMonstes := ReadSection(locale, "Monsters")
+    localizedStringsMonsters := ReadSection(locale, "Monsters")
     localizedStringsRunes := ReadSection(locale, "Runes")
     localizedStringsBuffs := ReadSection(locale, "Buffs")
     localizedStringsUI := ReadSection(locale, "UI")

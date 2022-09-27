@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.3] - 2022-09-26 - Minor fixes
+
+- Fixed buff bar (thanks @reetah)
+- Added sunder charms to list of items
+- You will now get a warning if you are running an old version of the map server
+
+## [3.0.2] - 2022-09-24 - Minor fixes
+
+- Fix for reading items from vendors
+- Replaced SeedDecrypt.dll with one written in Rust which works more reliably
+
+## [3.0.1] - 2022-09-23 - Fix after latest patch
+
+- Seed decryption has been reimplemented
+- Made some fixes to item stats
+
+## [3.0.0] - 2022-09-08 - Major rework
+
+- Maps no longer have to load when going from one walkable area to another!
+- All connected walkable maps now render at once
+- Walkable exits are now marked e.g. entrance to Cold Plains from Blood Moor
+- Major rewrite of how maps and units are drawn
+- `Ctrl+O` Settings UI General tab has been updated
+- Map position can now be CENTER, TOP_LEFT or TOP_RIGHT
+- You can cycle these 3 positions with the `\` key
+- Removed left margin, top margin and other redundant settings
+- Removed `mapconfig.ini` since that's not used anymore
+
+- **NOTE**: Expect some minor bugs with this release
+  - You need at least map server v15 otherwise you'll have slow performance
+  - Performance may overall be slower (looking for feedback)
+  - Some minor visual bugs may pop up
+  - Pathfinding may have some bugs
+  - You may need to reset your settings to defaults by deleting/renaming your `settings.ini` file
+  - You can still use v2.9.20 if you are experiencing problems
+  - Change map scale with numpad +/- keys is a bit slow
+
+## [2.9.20] - 2021-07-25 - Bug fixes
+
+- Many bug fixes for windowed mode
+- Fixed bug where map sometimes wouldn't appear in windowed mode
+- Fixed bug where half of map would be hidden in windowed mode
+- Fixed scaling of chests, boss health bars, portals, and exit lines in windowed mode
+
+## [2.9.19] - 2021-07-13 - Pathfinding
+
+- Pathfinding is now added for certain areas
+- Can be disabled in Ctrl+O settings
+- Pathfinding _REQUIRES_ d2-mapserver version 18 or higher
+- Some bug fixes
+
 ## [2.9.18] - 2021-06-30 - Fix after latest patch
 
 - Can correctly get map seed after latest patch
