@@ -88,6 +88,7 @@ readSettings(settingsFile, ByRef settings) {
     settings["normalMobColor"] := "FFFFFF"
     settings["uniqueMobColor"] := "D4AF37"
     settings["bossColor"] := "FF0000"
+    settings["playerColor"] := "2087FD"
     settings["mercColor"] := "436f73"
     settings["deadColor"] := "000000"
     settings["townNPCColor"] := "FFFFFF"
