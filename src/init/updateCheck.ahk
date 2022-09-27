@@ -1,7 +1,7 @@
 
 CheckForUpdates() {
-    try {
-    		return
+		return
+    try {    		
         URLLatestRelease := ""
         response := GetAPIRequest(URLLatestRelease)
         respJSON := JSON.Load(response)
@@ -16,7 +16,7 @@ CheckForUpdates() {
             foundnewer := false
         } else if (currenttagarr[2] > latesttagarr[2]) {
             foundnewer := false
-        } else if (currenttagarr[3] > latesttagarr[3]) {:
+        } else if (currenttagarr[3] > latesttagarr[3]) {
             foundnewer := false
         }
 
